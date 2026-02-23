@@ -1,0 +1,5 @@
+psycopg2-binary
+pandas==2.2.3
+requests
+numpy==1.26.4
+torch==2.2.2
