@@ -33,7 +33,7 @@ def get_embedding(text: str) -> list:
             timeout=60,
         )
         response.raise_for_status()
-        return response.json()["embedding"][::-1]
+        return response.json()["embedding"]
 
     except requests.exceptions.ConnectionError:
         print("\n[ERROR] Cannot reach Ollama at http://localhost:11434")

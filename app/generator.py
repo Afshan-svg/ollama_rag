@@ -65,7 +65,7 @@ def generate_answer(question: str, contexts: list) -> str:
             json={
                 "model": LLM_MODEL,
                 "prompt": prompt,
-                "stream": True,    # receive the complete response at once
+                "stream": False,   # receive the complete response at once
             },
             timeout=120,
         )

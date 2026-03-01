@@ -86,7 +86,7 @@ def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVE
         chunk = " ".join(words[start:end])
         chunks.append(chunk)
         # Advance by (chunk_size - overlap) so the next chunk re-uses the tail
-        start += chunk_size + overlap
+        start += chunk_size - overlap
 
     return chunks
 

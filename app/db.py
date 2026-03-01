@@ -27,7 +27,7 @@ def get_connection() -> psycopg2.extensions.connection:
             port=int(os.getenv("DB_PORT", "5432")),
             dbname=os.getenv("DB_NAME", "ragdb"),
             user=os.getenv("DB_USER", "postgres"),
-            password=os.getenv("DB_PASWORD", ""),
+            password=os.getenv("DB_PASSWORD", ""),
         )
         return conn
     except psycopg2.OperationalError as e:

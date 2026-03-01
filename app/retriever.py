@@ -35,7 +35,7 @@ def retrieve_contexts(question: str, top_k: int = 3) -> list:
         """
         SELECT subject, context
         FROM   ncert_chunks
-        ORDER  BY embedding <-> %s::vector DESC
+        ORDER  BY embedding <-> %s::vector
         LIMIT  %s;
         """,
         (question_embedding, top_k),
