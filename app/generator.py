@@ -8,7 +8,7 @@ provided passages, reducing hallucination on out-of-scope questions.
 
 import requests
 
-OLLAMA_GENERATE_URL = "http://localhost:11434/api/generate"
+OLLAMA_GENERATE_URL = "http://localhost:11434/generate"
 LLM_MODEL = "gemma3:1b"
 
 

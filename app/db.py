@@ -13,7 +13,18 @@ Required env vars:
 """
 
 import os
+import sys
+
 import psycopg2
+
+
+# psycopg2's binary build has known issues on some platforms; fail fast with a
+# clear message so users don't see cryptic errors later.
+if sys.platform == "win32":
+    raise RuntimeError(
+        "PostgreSQL client is not supported on this system. "
+        "Use WSL or a Linux environment to run this project."
+    )
 
 
 def get_connection() -> psycopg2.extensions.connection:
@@ -23,11 +34,11 @@ def get_connection() -> psycopg2.extensions.connection:
     """
     try:
         conn = psycopg2.connect(
-            host=os.getenv("DB_HOST", "localhost"),
-            port=int(os.getenv("DB_PORT", "5432")),
-            dbname=os.getenv("DB_NAME", "ragdb"),
-            user=os.getenv("DB_USER", "postgres"),
-            password=os.getenv("DB_PASSWORD", ""),
+            host="localhost",
+            port=5432,
+            dbname="ragdb",
+            user="postgres",
+            password="User@123",
         )
         return conn
     except psycopg2.OperationalError as e:
