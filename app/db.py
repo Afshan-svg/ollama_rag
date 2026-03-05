@@ -38,7 +38,7 @@ def get_connection() -> psycopg2.extensions.connection:
             port=5432,
             dbname="ragdb",
             user="postgres",
-            password="User@123",
+            password="Afshan@123",
         )
         return conn
     except psycopg2.OperationalError as e:
